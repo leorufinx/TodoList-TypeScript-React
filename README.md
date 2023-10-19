@@ -5,12 +5,9 @@ Desenvolvimento de um APP mobile em ReactNative
 <br>
 --> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
 <br><br>
-## Para rodar o App.js em React Native
+## Para rodar o App.js
 ctrl + shift + i<br>
 cd AwesomeProject<br>
-npm run web<br>
+npm run android (web se android der erro)<br>
 clicar na torre de rádio canto inferior esquerdo<br>
-abrir porta 5500 ou algo do tipo<br><br>
-## Para rodar o index.html de teste
-clique direito index.html<br>
-"Open with Live Server"<br><br>
+abrir porta<br><br>
