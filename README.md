@@ -7,7 +7,7 @@ Desenvolvimento de um APP mobile em ReactNative
 ctrl + shift + i<br>
 npm run web<br>
 clicar na torre de rádio canto inferior esquerdo<br>
-porta 19006 ou algo do tipo<br><br>
+abrir porta 5500 ou algo do tipo<br><br>
 ## Para rodar o index.html de teste
 clique direito index.html<br>
 "Open with Live Server"<br><br>
