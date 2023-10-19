@@ -4,6 +4,7 @@ Desenvolvimento de um APP mobile em ReactNative
 --> [CodeSpace](https://github.com/codespaces/glowing-barnacle-g69vwx6x99g2vxvp) <--
 <br><br>
 ## Para rodar o App.js em React Native
+ctrl + shift + i<br>
 npm run web<br>
 clicar na torre de rádio canto inferior esquerdo<br>
 porta 19006 ou algo do tipo<br><br>
