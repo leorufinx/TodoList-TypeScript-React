@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View, Button } from 'react-native';
+import { Text, TextInput, View, Pressable, Button } from 'react-native';
 import './App.css';
+import * as script from './javascript.js';
 
-const somar = (num1, num2) => {
+function somar(num1, num2) {
   return (
     <Text>Resultado de {num1} + {num2} = {num1 + num2}</Text>
   );
 }
+
+
 
 const Componente = param => {
 
@@ -21,7 +24,7 @@ const Componente = param => {
 
       <Text>Eu sou {genero ? 'homem' : 'mulher'}</Text>
 
-      <Button onPress={() => { setGenero(!genero); }} title={genero ? 'Quero ser Mulher' : 'Quero ser Homem'} />
+      <Pressable onPress={() => { setGenero(!genero); }} title={genero ? 'Quero ser Mulher' : 'Quero ser Homem'} ></Pressable>
 
       <TextInput style={{ margin: 5, padding: 5, backgroundColor: '#ff5555' }} placeholder='Digite algo' />
 
@@ -36,6 +39,9 @@ const Componente2 = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', width: '50%' }}>
       <Text style={{ fontSize: 35 }}>Componente Parent</Text>
+
+      <Button title="Chamar Função" onPress={script.invertTheme} />
+
       <Componente nome="A" idade="21" />
       <Componente nome="B" idade="15" />
       <Componente nome="C" />
