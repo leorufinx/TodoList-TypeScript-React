@@ -1,0 +1,383 @@
+:root {
+    scroll-behavior: smooth;
+
+    --light-main: #7E0000;
+    --light-main-hover: #7E0000CC;
+    --light-bg: #FFFFFF;
+    --light-h1: #000000;
+    --light-h2: #666666;
+    --light-shadow: #00000022;
+    --light-tooltip: #FF4C4D;
+    --light-input-hover: #EEEEEE;
+
+    --dark-main: #7e6fc9;
+    --dark-main-hover: #7e6fc9CC;
+    --dark-bg: #20232b;
+    --dark-h1: #F2F2F2;
+    --dark-h2: #9B88F6;
+    --dark-shadow: #00000022;
+    --dark-tooltip: #7aa6d6;
+    --dark-input-hover: #383744;
+
+    --float: float .3s cubic-bezier(0.15, 0.75, 0.55, 1.25);
+    --appear: appear .3s cubic-bezier(0.15, 0.75, 0.55, 1.25) forwards;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes appear {
+
+    0% {
+        transform: translate(-50%, 100%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+body {
+    background-color: var(--bg);
+    transition: .2s ease-out;
+}
+
+div {
+    padding: 5px;
+}
+
+div.formulario {
+    transition: 0.2s ease-out;
+    border-radius: 30px;
+    padding: 30px;
+    padding-top: 16px;
+    box-shadow: 0px 4px 20px 0px var(--shadow);
+    background-color: var(--bg);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 52px;
+    margin-bottom: 52px;
+}
+
+div.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 12px 0px 12px 0px;
+}
+
+div.semestres {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aaa {
+    position: relative;
+    width: 10%;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centerItems {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+select {
+    width: 50%;
+}
+
+img {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+}
+
+#img-preview {
+    border: 4px solid var(--main);
+    border-radius: 30px;
+    text-align: center;
+    line-height: 256px;
+    width: 256px;
+    height: 256px;
+}
+
+label {
+    font-family: 'Roboto Slab', serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 20px;
+    color: var(--main);
+    transition: 0.2s ease-out;
+}
+
+label[for=primeiro],
+label[for=segundo] {
+    border: 3px dashed var(--main);
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 30px;
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    margin: 4px 0px 4px 0px;
+    cursor: pointer;
+}
+
+label[for=formado],
+label[for=cursando] {
+    border: 3px dashed var(--main);
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+label[for=ano] {
+    margin-top: 16px;
+}
+
+.btn {
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: var(--main);
+    color: var(--bg);
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 5px 15px 5px 15px;
+    margin: 5px;
+    transition: 0.2s ease-out;
+    z-index: 2;
+}
+
+.btn:hover {
+    background-color: var(--main-hover);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.margin {
+    margin: 16px 0px 16px 0px;
+}
+
+.tooltiptext {
+    max-width: 25%;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    margin-left: -256px;
+    margin-top: -80px;
+    z-index: 3;
+    background-color: var(--tooltip);
+    color: var(--bg);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    padding: 15px;
+    transition: 0.2s ease-out;
+    line-height: 20px;
+}
+
+.tooltiptext:hover:not(.ignore),
+.tooltip:hover+.tooltiptext {
+    animation: var(--float);
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.floatL {
+    float: left;
+}
+
+.floatR {
+    float: right;
+}
+
+.inicio {
+    padding: 0 48px 56px 48px;
+    margin-bottom: 56px;
+    border-bottom: 4px dashed var(--shadow);
+}
+
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 44px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--h1);
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 28px;
+    color: var(--h2);
+}
+
+/* ------------------------------------- INPUTS ------------------------------------- */
+
+.formInput {
+    border: none;
+    border-bottom: 4px solid var(--shadow);
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--h2);
+    width: 53%;
+    margin-bottom: 32px;
+    background-color: var(--bg);
+}
+
+.formInput:hover,
+.formInput:focus {
+    background-color: var(--input-hover);
+}
+
+.formInput[id=idade] {
+    width: 5%;
+}
+
+.formInput[id=ano] {
+    width: 70%;
+}
+
+.formInput[id=textoPessoal] {
+    width: 90%;
+}
+
+.formInput[id=textoFatec] {
+    width: 90%;
+}
+
+input[type=radio],
+input[type=file] {
+    display: none;
+}
+
+input[type="checkbox"]+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+    margin-left: 20px;
+}
+
+input[type="radio"]:checked+label,
+input[type="checkbox"]:checked+label {
+    background-color: var(--main);
+    color: var(--bg);
+}
+
+.req::after {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--tooltip);
+    content: " *";
+}
+
+.res::before {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--tooltip);
+    content: "| ";
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+}
+
+.modal-content {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    background-color: var(--bg);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 20px 0px var(--shadow);
+    animation: var(--appear);
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--input-hover);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--h2);
+    height: 15%;
+    border-radius: 10px;
+}
+
+:disabled,
+:disabled:hover {
+    background-color: var(--h2);
+    color: var(--shadow);
+    cursor: not-allowed;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    padding: 4px;
+    margin: 4px;
+    transition: 0.2s ease-out;
+}
+
+.sticky {
+    z-index: 1;
+    position: sticky;
+    top: -1px;
+}

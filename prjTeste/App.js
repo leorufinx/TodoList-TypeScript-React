@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
+import './App.css';
 
 const somar = (num1, num2) => {
   return (
@@ -33,7 +34,7 @@ const Componente = param => {
 const Componente2 = () => {
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#bbbbcc', width: '100%' }}>
+    <View style={{ flex: 1, justifyContent: 'center', width: '50%' }}>
       <Text style={{ fontSize: 35 }}>Componente Parent</Text>
       <Componente nome="A" idade="21" />
       <Componente nome="B" idade="15" />
