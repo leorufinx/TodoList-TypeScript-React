@@ -45,6 +45,7 @@ const Componente2 = () => {
     <div className="main">
 
       <div class="sticky">
+        <h1 className="btn floatL" onClick={script.modoTerremoto} >Modo Terremoto</h1>
         <Btn id="btnTheme" />
       </div>
 

@@ -68,3 +68,7 @@ if (localStorage.getItem("theme") == "light") {
     root.style.setProperty('--tooltip', 'var(--dark-tooltip)');
     root.style.setProperty('--input-hover', 'var(--dark-input-hover)');
 }
+
+export function modoTerremoto(){
+    document.body.style.animation = "float .2s cubic-bezier(.39, -2.87, .94, 4.63) infinite";
+}
