@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
-    scroll-behavior: smooth;
+    --title-font: 'Roboto Slab';
+    --text-font: 'Roboto';
 
     --light-main: #7E0000;
     --light-main-hover: #7E0000CC;
@@ -49,6 +53,14 @@
 body {
     background-color: var(--bg);
     transition: .2s ease-out;
+}
+
+/* * {
+    border: 3px solid red;
+} */
+
+.main {
+    width: 100%;
 }
 
 div {
@@ -128,7 +140,7 @@ img {
 }
 
 label {
-    font-family: 'Roboto Slab', serif;
+    font-family: var(--title-font), serif;
     font-size: 28px;
     font-weight: 400;
     text-align: center;
@@ -140,7 +152,7 @@ label {
 label[for=primeiro],
 label[for=segundo] {
     border: 3px dashed var(--main);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 20px;
     font-weight: 300;
     border-radius: 30px;
@@ -169,13 +181,14 @@ label[for=ano] {
     border-radius: 30px;
     background-color: var(--main);
     color: var(--bg);
-    font-family: 'Roboto Slab', serif;
+    font-family: var(--title-font), serif;
     font-size: 22px;
     font-weight: 500;
     padding: 5px 15px 5px 15px;
     margin: 5px;
     transition: 0.2s ease-out;
     z-index: 2;
+    width: 10%;
 }
 
 .btn:hover {
@@ -201,7 +214,7 @@ textarea {
     background-color: var(--tooltip);
     color: var(--bg);
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 16px;
     font-weight: 500;
     border-radius: 30px;
@@ -234,7 +247,7 @@ textarea {
 
 
 h1 {
-    font-family: 'Roboto Slab', serif;
+    font-family: var(--title-font), serif;
     font-size: 44px;
     font-weight: 500;
     text-align: center;
@@ -242,7 +255,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 16px;
     font-weight: 300;
     text-align: justify;
@@ -255,7 +268,7 @@ h2 {
 .formInput {
     border: none;
     border-bottom: 4px solid var(--shadow);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 20px;
     font-weight: 300;
     transition: 0.2s ease-out;
@@ -280,21 +293,13 @@ h2 {
     width: 70%;
 }
 
-.formInput[id=textoPessoal] {
-    width: 90%;
-}
-
-.formInput[id=textoFatec] {
-    width: 90%;
-}
-
 input[type=radio],
 input[type=file] {
     display: none;
 }
 
 input[type="checkbox"]+label {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 16px;
     font-weight: 300;
     transition: 0.2s ease-out;
@@ -308,7 +313,7 @@ input[type="checkbox"]:checked+label {
 }
 
 .req::after {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 28px;
     font-weight: 500;
     color: var(--tooltip);
@@ -316,7 +321,7 @@ input[type="checkbox"]:checked+label {
 }
 
 .res::before {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--text-font), sans-serif;
     font-size: 28px;
     font-weight: 500;
     color: var(--tooltip);
@@ -373,7 +378,7 @@ input[type="checkbox"]:checked+label {
     border-radius: 100%;
     padding: 4px;
     margin: 4px;
-    transition: 0.2s ease-out;
+    transition: .2s ease-out;
 }
 
 .sticky {
