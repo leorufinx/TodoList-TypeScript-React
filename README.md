@@ -1,7 +1,7 @@
 # Project-ReactNative-Mobile
 Desenvolvimento de um APP mobile em ReactNative
 <br>
---> [CodeSpace](https://github.com/codespaces/glowing-barnacle-g69vwx6x99g2vxvp) <--
+--> [CodeSpace](https://orange-telegram-464p9q6q5xgf79wj.github.dev/) <--
 <br>
 --> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
 <br><br>
