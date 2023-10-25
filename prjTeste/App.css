@@ -5,23 +5,23 @@
     --title-font: 'Roboto Slab';
     --text-font: 'Roboto';
 
-    --light-main: #7E0000;
-    --light-main-hover: #7E0000CC;
-    --light-bg: #FFFFFF;
+    --light-main: #7D78B3;
+    --light-main-hover: #B2ABFF;
+    --light-bg: #ffffcc;
     --light-h1: #000000;
     --light-h2: #666666;
-    --light-shadow: #00000022;
-    --light-tooltip: #FF4C4D;
-    --light-input-hover: #EEEEEE;
+    --light-shadow: #B3AC89;
+    --light-tooltip: #6B6799;
+    --light-input-hover: #ffffbb;
 
-    --dark-main: #7e6fc9;
-    --dark-main-hover: #7e6fc9CC;
-    --dark-bg: #20232b;
+    --dark-main: #D4BE47;
+    --dark-main-hover: #f1da5b;
+    --dark-bg: #000033;
     --dark-h1: #F2F2F2;
     --dark-h2: #9B88F6;
-    --dark-shadow: #00000022;
+    --dark-shadow: #191921;
     --dark-tooltip: #7aa6d6;
-    --dark-input-hover: #383744;
+    --dark-input-hover: #000044;
 
     --float: float .3s cubic-bezier(0.15, 0.75, 0.55, 1.25);
     --appear: appear .3s cubic-bezier(0.15, 0.75, 0.55, 1.25) forwards;
