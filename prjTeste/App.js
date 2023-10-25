@@ -3,6 +3,8 @@ import { Text, TextInput, View, Button } from 'react-native';
 import './App.css';
 import * as script from './javascript.js';
 
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
 const Btn = param => {
   return (
     <img id={param.id} className="btn icon floatR" onClick={script.invertTheme} />
@@ -41,6 +43,25 @@ const Pessoa = param => {
 
 const Componente2 = () => {
 
+  let titulo = "Tela Principal";
+
+  document.title = titulo;
+
+  async function testeSleep() {
+
+    document.title = titulo;
+
+    for (let i = 1; i <= 1000; i++) {
+      await sleep(300);
+      document.title = "(" + i + ")" + " " + titulo;
+    }
+  }
+
+  function mudarTitulo() {
+    titulo = document.getElementById("title").value;
+    document.title = titulo;
+  }
+
   return (
     <div className="main">
 
@@ -51,6 +72,13 @@ const Componente2 = () => {
 
       <h1>Componente Parent</h1>
       <h2>Essa página é de teste para testar e aprender React Native e suas belíssimas funções</h2>
+
+      <label for="title">Title da página</label>
+      <br />
+      <input type="text" id="title" class="formInput" />
+      <br />
+      <h1 className="btn" onClick={mudarTitulo}>Mudar</h1>
+      <h1 className="btn" onClick={testeSleep}>Testar Sleep</h1>
 
       <Pessoa nome="Pedro" idade="21" />
       <Pessoa nome="Maria" idade="15" />
