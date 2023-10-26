@@ -7,4 +7,8 @@ Desenvolvimento de um APP mobile em ReactNative
 <br><br>
 ## Para rodar o App
 Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p) e de 'cd TESTE' e depois 'npx react-native run-android'.
+<br>
 Parece que é possível conectar seu celular real com um cabo USB mas tenho que testar.
+<br>
+<br>
+O console.log() é o maluco com a logo do node.
