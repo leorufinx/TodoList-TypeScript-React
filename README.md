@@ -5,9 +5,5 @@ Desenvolvimento de um APP mobile em ReactNative
 <br>
 --> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
 <br><br>
-## Para rodar o App.js
-ctrl + shift + i<br>
-cd AwesomeProject<br>
-npm run android (web se android der erro)<br>
-clicar na torre de rádio canto inferior esquerdo<br>
-abrir porta<br><br>
+## Para rodar o App
+clone o projeto no VSCode da sua máquina, baixe o Android Studio e crie um celular (recomendo tela 5" 1080p) e de 'cd TESTE' e depois 'npx react-native run-android'
