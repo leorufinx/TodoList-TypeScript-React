@@ -7,7 +7,6 @@
 <li>node: 18.15.0</li>
 <li>npm: 8.4.0</li>
 <br>
-<br>
 <h2>Para rodar o App</h2>
 <li>Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p).</li>
 <li>Agora no VSCode de ctrl + shift + " para abrir o terminal:
