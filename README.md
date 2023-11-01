@@ -13,6 +13,7 @@
 <ul>
 <li>npm install -g react-native</li>
 <li>cd prjBD</li>
-<li>npx react-native run-android</li>
+<li>npx react-native start</li>
+<li>a</li>
 </ul>
 </li>
