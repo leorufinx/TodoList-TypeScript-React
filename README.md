@@ -1,9 +1,11 @@
-# Project-ReactNative-Mobile
-Desenvolvimento de um APP mobile em ReactNative
-<br>
---> [CodeSpace](https://orange-telegram-464p9q6q5xgf79wj.github.dev/) <--
-<br>
+# Projeto de BD em React Native
 --> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
+<br>
+<br>
+## Versões
+- react-native: 11.3.7
+- node: 18.15.0
+- npm: 8.4.0
 <br>
 <br>
 ## Para rodar o App
