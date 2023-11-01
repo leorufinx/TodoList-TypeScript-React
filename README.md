@@ -7,9 +7,9 @@ Desenvolvimento de um APP mobile em ReactNative
 <br>
 <br>
 ## Para rodar o App
-Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p).
+### Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p).
 <br>
-Agora no VSCode de ctrl + shift + " para abrir o terminal:
+### Agora no VSCode de ctrl + shift + " para abrir o terminal:
 <br>
 npm install -g react-native
 <br>
