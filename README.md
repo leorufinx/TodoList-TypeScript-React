@@ -1,5 +1,5 @@
 <h1>Projeto de BD em React Native</h1>
---> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
+--> https://reactnative.dev/docs/getting-started <--
 <br>
 <br>
 <h2>Versões</h2>
