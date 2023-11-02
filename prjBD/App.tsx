@@ -25,6 +25,7 @@ const MeuComponente: React.FC = () => {
       </TouchableOpacity>
     </View>
   );
+  
 };
 
 export default MeuComponente;
