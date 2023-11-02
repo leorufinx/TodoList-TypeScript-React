@@ -1,5 +1,5 @@
 <h1>Projeto de BD em React Native</h1>
---> <a target="_blank" href="https://reactnative.dev/docs/getting-started">Guia Oficial React Native</a> <--
+--> <a href="https://reactnative.dev/docs/getting-started" target="_blank">Guia Oficial React Native</a> <--
 <br>
 <br>
 <h2>Versões</h2>
