@@ -14,7 +14,7 @@
   <li>Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p).</li>
   <li>Agora no VSCode (modo administrador) de ctrl + shift + " para abrir o terminal:
   <ul>
-    <li>npm install -g react-native</li>
+    <li>npm install</li>
     <li>cd prjBD</li>
     <li>npx react-native start</li>
     <li>a</li>
