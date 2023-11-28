@@ -1,0 +1,14 @@
+Informe a senha da área de armazenamento de chaves: reactapp
+Informe novamente a nova senha: reactapp
+Qual é o seu nome e o seu sobrenome?
+  [Unknown]:  React App
+Qual é o nome da sua unidade organizacional?
+  [Unknown]:  React App
+Qual é o nome da sua empresa?
+  [Unknown]:  React App
+Qual é o nome da sua Cidade ou Localidade?
+  [Unknown]:  React App
+Qual é o nome do seu Estado ou Município?
+  [Unknown]:  React App
+Quais são as duas letras do código do país desta unidade?
+  [Unknown]:  RA 

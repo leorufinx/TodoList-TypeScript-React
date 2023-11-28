@@ -1,13 +1,22 @@
-# Project-ReactNative-Mobile
-Desenvolvimento de um APP mobile em ReactNative
+<h1>Projeto de BD em React Native</h1>
+--> <a href="https://reactnative.dev/docs/getting-started" target="_blank">Guia Oficial React Native</a> <--
 <br>
---> [CodeSpace](https://github.com/codespaces/glowing-barnacle-g69vwx6x99g2vxvp) <--
 <br>
---> [Aprender React Native](https://reactnative.dev/docs/getting-started) <--
-<br><br>
-## Para rodar o App.js
-ctrl + shift + i<br>
-cd AwesomeProject<br>
-npm run android (web se android der erro)<br>
-clicar na torre de rádio canto inferior esquerdo<br>
-abrir porta<br><br>
+<h2>Versões</h2>
+<ul>
+  <li>react-native: 11.3.7</li>
+  <li>node: 18.15.0</li>
+  <li>npm: 9.5.0</li>
+</ul>
+<br>
+<h2>Para rodar o App</h2>
+<ul>
+  <li>Clone o projeto no VSCode da sua máquina, baixe o Android Studio, crie e rode um celular (recomendo tela 5" 1080p).</li>
+  <li>Agora no VSCode (modo administrador) de ctrl + shift + " para abrir o terminal:
+  <ul>
+    <li>npm install</li>
+    <li>cd prjBD</li>
+    <li>npx react-native start</li>
+    <li>a</li>
+  </ul>
+</ul>
