@@ -76,7 +76,7 @@ body {
    padding: 30px;
    box-shadow: 0px 4px 20px 0px var(--shadow);
    background-color: var(--bg);
-   width: 65%;
+   width: 35%;
    margin-left: auto;
    margin-right: auto;
    margin-top: 52px;
@@ -195,7 +195,7 @@ body {
    border-radius: 5px;
    color: var(--h2);
    width: 100%;
-   height: 3rem;
+   min-height: 3rem;
    margin-top: 12px;
    margin-bottom: 42px;
    background-color: var(--bg);
@@ -204,6 +204,10 @@ body {
 .formInput:hover,
 .formInput:focus {
    background-color: var(--shadow);
+}
+
+textarea{
+   resize: vertical;
 }
 
 // ---------------------------------------------------------------- MODAL
