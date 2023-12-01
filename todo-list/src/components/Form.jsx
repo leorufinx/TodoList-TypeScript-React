@@ -7,12 +7,13 @@ export default function Form({ addTodo }) {
    const [getDescricao, setDescricao] = useState('');
    const [getTexto, setTexto] = useState('');
 
-   // const todoCreate = (text) => {
-   //    const todoObj = { text: text, id: id };
-   //    setId(id + 1);
-   //    addTodo(todoObj);
-   //    document.getElementById("outlined-basic").value = null;
-   // };
+   const todoCreate = (titulo, desc) => {
+
+      
+
+      document.getElementById("titulo").value = "";
+      document.getElementById("descricao").value = "";
+   };
 
    return (
 
@@ -27,11 +28,8 @@ export default function Form({ addTodo }) {
             <InputArea id="descricao" title="Descrição" type="text" />
          </div>
 
-         <input type="button" className="btn" value="Criar" />
+         <input type="button" className="btn" value="Criar" onClick={() => todoCreate(getTitulo, getDescricao)}/>
 
-         {/* <Button variant="text" onClick={() => todoCreate(text)}>
-            Criar
-         </Button> */}
       </div>
 
    );
