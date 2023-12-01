@@ -1,44 +1,35 @@
 import { Container, List } from "@mui/material";
 import React, { useState } from "react";
-import Form from "../components/Form";
 import TodoItem from "../components/TodoItem";
+import { InputField, InputArea } from "../components/Input";
 
 export default function Home() {
-   const [todos, setTodos] = useState([]);
-   const addTodo = (todo) => {
-      setTodos([...todos, todo]);
-   };
+   const [getTitulo, setTitulo] = useState('');
+   const [getDescricao, setDescricao] = useState('');
 
-   const deleteTodo = (id) => {
-      var filtered = todos.filter((todo) => todo.id !== id);
-      setTodos(filtered);
-   };
+   const todoCreate = (titulo, desc) => {
 
-   const editTodo = (id, editedText) => {
-      var todosArray = todos;
 
-      for (var i in todosArray) {
-         if (todosArray[i].id == id) {
-            todosArray[i].text = editedText;
-         }
-      }
 
-      // console.log(todosArray);
-      // todosArray.splice(todosArray.id, 1, { text: editedText, id: id });
-      // console.log(todosArray);
-      setTodos(todosArray);
+      document.getElementById("titulo").value = "";
+      document.getElementById("descricao").value = "";
    };
 
    return (
-      <Container maxWidth="90%" style={{ marginTop: "1em" }}>
-         <Form addTodo={addTodo} />
-         <List sx={{ marginTop: "1em" }}>
-            {todos.map((todo) => (
-               <div key={todo.id} style={{ marginTop: "1em" }}>
-                  <TodoItem editTodo={editTodo} todo={todo} deleteTodo={deleteTodo} />
-               </div>
-            ))}
-         </List>
-      </Container>
+      <div className="form">
+
+         <div className="h1">Tarefa</div>
+
+         <div className="row">
+            <InputField id="titulo" title="Título" type="text" value={getTitulo} onChange={setTitulo} />
+         </div>
+
+         <div className="row">
+            <InputArea id="descricao" title="Descrição" type="text" />
+         </div>
+
+         <input type="button" className="btn" value="Criar" onClick={() => todoCreate(getTitulo, getDescricao)} />
+
+      </div>
    );
 }

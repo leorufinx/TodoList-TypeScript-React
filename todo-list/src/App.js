@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles/App.scss";
+import { Link } from "./components/Link";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
@@ -19,8 +20,8 @@ function App() {
 
    return (
       <div>
-         <button onClick={() => setPage("Home")}>Ir para Home</button>
-         <button onClick={() => setPage("Login")}>Ir para Login</button>
+         <Link href="Home" setPage={setPage} />
+         <Link href="Login" setPage={setPage} />
 
          {renderPage()}
       </div>
