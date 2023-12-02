@@ -129,7 +129,7 @@ ORDER BY
 
 END $ $ DELIMITER;
 
-DELIMITER $ $ CREATE PROCEDURE searchByTitle(IN paramTitulo VARCHAR(30)) BEGIN
+DELIMITER $ $ CREATE PROCEDURE searchByTitle(IN paramIdUser INT, IN paramTitulo VARCHAR(30)) BEGIN
 SELECT
    idTarefa,
    idUser,
@@ -139,14 +139,15 @@ SELECT
 FROM
    tb_tarefa t
 WHERE
-   Titulo LIKE CONCAT('%', paramTitulo, '%');
+   paramIdUser = idUser
+   AND Titulo LIKE CONCAT('%', paramTitulo, '%');
 
 END $ $ DELIMITER;
 
 DELIMITER $ $ CREATE PROCEDURE putTarefa(
-   in p_idUser INT,
-   in p_Titulo VARCHAR(30),
-   in p_Descricao TEXT
+   IN p_idUser INT,
+   IN p_Titulo VARCHAR(30),
+   IN p_Descricao TEXT
 ) BEGIN
 INSERT INTO
    tb_tarefa (idUser, Titulo, Descricao)
@@ -156,9 +157,9 @@ VALUES
 END $ $ DELIMITER;
 
 DELIMITER $ $ CREATE PROCEDURE updateTarefa(
-   in p_idTarefa int,
-   in p_Titulo VARCHAR(30),
-   in p_Descricao TEXT
+   IN p_idTarefa int,
+   IN p_Titulo VARCHAR(30),
+   IN p_Descricao TEXT
 ) BEGIN
 UPDATE
    tb_tarefa
@@ -170,11 +171,29 @@ WHERE
 
 END $ $ DELIMITER;
 
-DELIMITER $ $ CREATE PROCEDURE deleteTarefa(in p_idTarefa int) BEGIN
+DELIMITER $ $ CREATE PROCEDURE deleteTarefa(IN p_idTarefa INT) BEGIN
 DELETE FROM
    tb_tarefa
 WHERE
    idTarefa = p_idTarefa;
+
+END $ $ DELIMITER;
+
+DELIMITER $ $ CREATE PROCEDURE fazerLogin(
+   IN paramNome VARCHAR(50),
+   IN paramSenha VARCHAR(60)
+) BEGIN
+SELECT
+   COUNT(
+      SELECT
+         Nome,
+         Senha
+      FROM
+         tb_user
+      WHERE
+         paramNome = Nome
+         AND paramSenha = Senha
+   );
 
 END $ $ DELIMITER;
 
@@ -205,6 +224,6 @@ INSERT INTO
 VALUES
    (OLD.idUser, OLD.idTarefa, "DELETE");
 
-END $ $ DELIMITER ;
+END $ $ DELIMITER;
 
 COMMIT;
