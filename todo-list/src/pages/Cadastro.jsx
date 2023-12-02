@@ -2,7 +2,6 @@ import { Container, List } from "@mui/material";
 import React, { useState } from "react";
 import TodoItem from "../components/TodoItem";
 import { InputField, InputArea } from "../components/Input";
-import { Button, Link } from "../components/Link";
 
 export default function Login() {
    const [getNome, setNome] = useState('');
@@ -29,7 +28,6 @@ export default function Login() {
             <InputField id="senha" title="Senha" type="password" value={getSenha} onChange={setSenha} />
          </div>
 
-         <Link href="Cadastro" setPage={setPage} />
          <input type="button" className="btn" value="Entrar" onClick={() => fazerLogin(getNome, getSenha)} />
 
       </div>
