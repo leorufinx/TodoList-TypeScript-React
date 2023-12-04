@@ -19,21 +19,34 @@ export default function Home() {
       });
    };
 
-   const editTodo = (id) => async () => {
-      var todosArray = getTodos;
+   const editTodo = async (paramId) => {
+      const token = localStorage.getItem("token");
+      const idUser = localStorage.getItem("id");
 
-      for (var i in todosArray) {
-         if (todosArray[i].id == id) {
-            todosArray[i].titulo = "123";
-            todosArray[i].descricao = "newDesc";
-         }
+      try {
+         const response = await axios.put('http://localhost:8080/tarefas',
+            {
+               id_tarefa: paramId,
+               id_user: idUser,
+               titulo: getTitulo,
+               descricao: getDescricao
+            },
+            {
+               headers: {
+                  Authorization: `Bearer ${token}`
+               }
+            }
+         );
+
+         window.location.href = window.location.href;
+
+         console.log(response);
+      } catch (error) {
+         console.error(error);
       }
-
-      setTodos(todosArray);
    };
 
    const deleteTodo = async (paramId) => {
-      alert(paramId);
       const token = localStorage.getItem("token");
       const idUser = localStorage.getItem("id");
 
@@ -48,8 +61,7 @@ export default function Home() {
             }
          });
 
-         // var filtered = getTodos.filter((todo) => todo.id !== paramId);
-         // setTodos(filtered);
+         window.location.href = window.location.href;
 
          console.log(response);
       } catch (error) {
@@ -117,6 +129,8 @@ export default function Home() {
          const todoObj = { id: getId, titulo: getTitulo, descricao: getDescricao };
          setId(getId + 1);
          addTodo(todoObj);
+
+         window.location.href = window.location.href;
 
          console.log(response);
       } catch (error) {
