@@ -13,217 +13,106 @@ USE db_todolist;
 
 -- ------------------------------------------------------- CRIAR TABLES
 CREATE TABLE tb_user (
-   idUser INT AUTO_INCREMENT PRIMARY KEY,
-   Nome VARCHAR(50),
-   Senha VARCHAR(60)
+   id_user  INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(50) UNIQUE,
+   hash_password TEXT,
+   token_jwt TEXT 
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE tb_tarefa (
-   idTarefa INT AUTO_INCREMENT PRIMARY KEY,
-   idUser INT,
-   Titulo VARCHAR(30),
-   Descricao TEXT,
-   Insercao TIMESTAMP NOT NULL DEFAULT current_timestamp()
+   id_tarefa INT AUTO_INCREMENT PRIMARY KEY,
+   id_user INT,
+   titulo VARCHAR(30),
+   descricao TEXT,
+   insercao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE tb_log_tarefa (
-   idLog INT AUTO_INCREMENT PRIMARY KEY,
-   idUser INT,
-   idTarefa INT,
-   tipoAlteracao CHAR(6),
-   dataHora TIMESTAMP NOT NULL DEFAULT current_timestamp()
+   id_log INT AUTO_INCREMENT PRIMARY KEY,
+   id_user INT,
+   id_tarefa INT,
+   tipo_alteracao CHAR(6),
+   data_hora TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 -- ------------------------------------------------------- CRIAR FOREIGN KEYS
-ALTER TABLE
-   tb_tarefa
-ADD
-   CONSTRAINT FK_USER_TAREFA FOREIGN KEY (idUser) REFERENCES tb_user(idUser);
-
--- ------------------------------------------------------- INSERINDO DADOS
-INSERT INTO
-   tb_user (Nome)
-VALUES
-   ('Matheus', 'password'),
-   ('Hugo', '123456');
-
-INSERT INTO
-   tb_tarefa (idUser, Titulo, Descricao)
-VALUES
-   (
-      1,
-      'Louça',
-      'Lavar a louça'
-   ),
-   (
-      2,
-      'Lixo',
-      'Devo tirar o lixo'
-   ),
-   (
-      1,
-      'Compras',
-      'Lista de compras'
-   ),
-   (
-      2,
-      'Estudo',
-      'Preparar para exame'
-   ),
-   (
-      1,
-      'Exercícios',
-      'Treino diário'
-   ),
-   (
-      2,
-      'Leitura',
-      'Livro recomendado'
-   ),
-   (
-      1,
-      'Trabalho',
-      'Projeto importante'
-   ),
-   (
-      2,
-      'Limpeza',
-      'Organizar quarto'
-   ),
-   (
-      1,
-      'Cozinha',
-      'Experimentar nova receita'
-   ),
-   (
-      2,
-      'Expediente',
-      'Reunião de equipe'
-   ),
-   (
-      1,
-      'Saúde',
-      'Consulta médica'
-   ),
-   (
-      2,
-      'Finanças',
-      'Orçamento mensal'
-   );
+ALTER TABLE tb_tarefa
+ADD CONSTRAINT FK_USER_TAREFA FOREIGN KEY (id_user) REFERENCES tb_user(id_user);
 
 -- ------------------------------------------------------- PROCEDURES
-DELIMITER $ $ CREATE PROCEDURE searchByUser(IN idUser INT) BEGIN
-SELECT
-   idTarefa,
-   Titulo,
-   Descricao,
-   Insercao
-FROM
-   tb_tarefa t
-   INNER JOIN tb_user u ON u.idUser = t.idUser
-WHERE
-   u.idUser = idUser
-ORDER BY
-   Insercao,
-   Titulo;
+select hash_password from tb_user;
+DELIMITER //
 
-END $ $ DELIMITER;
+CREATE PROCEDURE get_user_by_name(IN p_username VARCHAR(50))
+BEGIN
+   SELECT id_user, username, hash_password, token_jwt 
+   FROM tb_user
+   WHERE username = p_username;
+END //
 
-DELIMITER $ $ CREATE PROCEDURE searchByTitle(IN paramIdUser INT, IN paramTitulo VARCHAR(30)) BEGIN
-SELECT
-   idTarefa,
-   idUser,
-   Titulo,
-   Descricao,
-   Insercao
-FROM
-   tb_tarefa t
-WHERE
-   paramIdUser = idUser
-   AND Titulo LIKE CONCAT('%', paramTitulo, '%');
+DELIMITER //
 
-END $ $ DELIMITER;
+CREATE PROCEDURE get_tarefa_by_user_id(IN p_id_user INT)
+BEGIN
+   SELECT id_tarefa, titulo, descricao, insercao
+   FROM tb_tarefa t
+   INNER JOIN tb_user u ON u.id_user = t.id_user
+   WHERE u.id_user = p_id_user
+   ORDER BY insercao, titulo;
+END //
 
-DELIMITER $ $ CREATE PROCEDURE putTarefa(
-   IN p_idUser INT,
-   IN p_Titulo VARCHAR(30),
-   IN p_Descricao TEXT
-) BEGIN
-INSERT INTO
-   tb_tarefa (idUser, Titulo, Descricao)
-VALUES
-   (p_idUser, p_Titulo, p_Descricao);
+DELIMITER ;
 
-END $ $ DELIMITER;
+DELIMITER //
 
-DELIMITER $ $ CREATE PROCEDURE updateTarefa(
-   IN p_idTarefa int,
-   IN p_Titulo VARCHAR(30),
-   IN p_Descricao TEXT
-) BEGIN
-UPDATE
-   tb_tarefa
-SET
-   Titulo = p_Titulo,
-   Descricao = p_Descricao
-WHERE
-   idTarefa = p_idTarefa;
+CREATE PROCEDURE get_tarefa_by_titulo(IN p_titulo VARCHAR(30), IN p_id_user INT)
+BEGIN
+   SELECT id_tarefa, id_user, titulo, descricao, insercao
+   FROM tb_tarefa
+   WHERE titulo LIKE CONCAT('%', p_titulo, '%') AND id_user = p_id_user;
+END //
 
-END $ $ DELIMITER;
+DELIMITER ;
 
-DELIMITER $ $ CREATE PROCEDURE deleteTarefa(IN p_idTarefa INT) BEGIN
-DELETE FROM
-   tb_tarefa
-WHERE
-   idTarefa = p_idTarefa;
+DELIMITER //
+CREATE PROCEDURE post_user(IN p_username VARCHAR(30), IN p_hash_password TEXT, IN p_token_jwt TEXT)
+BEGIN
 
-END $ $ DELIMITER;
+   INSERT INTO tb_user (username, hash_password, token_jwt)
+   VALUES (p_username, p_hash_password, p_token_jwt);
+   
+END //
 
-DELIMITER $ $ CREATE PROCEDURE fazerLogin(
-   IN paramNome VARCHAR(50),
-   IN paramSenha VARCHAR(60)
-) BEGIN
-SELECT
-   COUNT(
-      SELECT
-         Nome,
-         Senha
-      FROM
-         tb_user
-      WHERE
-         paramNome = Nome
-         AND paramSenha = Senha
-   );
+DELIMITER //
 
-END $ $ DELIMITER;
+CREATE PROCEDURE post_tarefa(IN p_id_user INT, IN p_titulo VARCHAR(30), IN p_descricao TEXT)
+BEGIN
+   INSERT INTO tb_tarefa (id_user, titulo, descricao)
+   VALUES (p_id_user, p_titulo, p_descricao);
+END //
 
--- ------------------------------------------------------- TRIGGERS
-DELIMITER $ $ CREATE TRIGGER trg_update_tarefa
-AFTER
-UPDATE
-   ON tb_tarefa FOR EACH ROW BEGIN
-INSERT INTO
-   tb_log_tarefa (idUser, idTarefa, tipoAlteracao)
-VALUES
-   (OLD.idUser, OLD.idTarefa, "UPDATE");
+DELIMITER ;
 
-END $ $ DELIMITER $ $ CREATE TRIGGER trg_insert_tarefa
-AFTER
-INSERT
-   ON tb_tarefa FOR EACH ROW BEGIN
-INSERT INTO
-   tb_log_tarefa (idUser, idTarefa, tipoAlteracao)
-VALUES
-   (NEW.idUser, NEW.idTarefa, "INSERT");
+DELIMITER //
 
-END $ $ DELIMITER $ $ CREATE TRIGGER trg_delete_tarefa
-AFTER
-   DELETE ON tb_tarefa FOR EACH ROW BEGIN
-INSERT INTO
-   tb_log_tarefa (idUser, idTarefa, tipoAlteracao)
-VALUES
-   (OLD.idUser, OLD.idTarefa, "DELETE");
+CREATE PROCEDURE put_tarefa(IN p_id_user INT, IN p_id_tarefa INT, IN p_titulo VARCHAR(30), IN p_descricao TEXT)
+BEGIN
+   UPDATE tb_tarefa
+   SET titulo = p_titulo, descricao = p_descricao
+   WHERE id_tarefa = p_id_tarefa AND id_user = p_id_user;
+END //
 
-END $ $ DELIMITER;
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE delete_tarefa(IN p_idTarefa INT,IN p_id_user INT)
+BEGIN
+   DELETE FROM tb_tarefa
+   WHERE id_tarefa = p_idTarefa
+   and id_user = p_id_user;
+END //
+
+DELIMITER ;
 
 COMMIT;
