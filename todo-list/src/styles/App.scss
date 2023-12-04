@@ -206,7 +206,7 @@ body {
    background-color: var(--shadow);
 }
 
-textarea{
+textarea {
    resize: vertical;
 }
 
@@ -288,4 +288,13 @@ textarea{
    .column {
       width: 100%;
    }
+}
+
+.error {
+   font-family: var(--fontText);
+   font-size: 20px;
+   font-weight: 300;
+   text-align: center;
+   line-height: 28px;
+   color: red;
 }
