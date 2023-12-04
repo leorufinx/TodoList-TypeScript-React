@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import CommentIcon from "@mui/icons-material/Comment";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Paper } from "@mui/material";
-import EditTodoDialog from "./EditTodoDialog";
+import EditTodoDialog from "../../../todo-list/src/components/EditTodoDialog";
 
 export default function TodoItem({ todo, deleteTodo, editTodo }) {
   const [openDialog, setOpenDialog] = React.useState(false);

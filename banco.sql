@@ -115,4 +115,33 @@ END //
 
 DELIMITER ;
 
+-- ------------------------------------------------------- TRIGGERS
+DELIMITER $ $ CREATE TRIGGER trg_update_tarefa
+AFTER
+UPDATE
+   ON tb_tarefa FOR EACH ROW BEGIN
+INSERT INTO
+   tb_log_tarefa (id_user, id_tarefa, tipo_alteracao)
+VALUES
+   (OLD.id_user, OLD.id_tarefa, "UPDATE");
+
+END $ $ DELIMITER $ $ CREATE TRIGGER trg_insert_tarefa
+AFTER
+INSERT
+   ON tb_tarefa FOR EACH ROW BEGIN
+INSERT INTO
+   tb_log_tarefa (id_user, id_tarefa, tipo_alteracao)
+VALUES
+   (NEW.id_user, NEW.id_tarefa, "INSERT");
+
+END $ $ DELIMITER $ $ CREATE TRIGGER trg_delete_tarefa
+AFTER
+   DELETE ON tb_tarefa FOR EACH ROW BEGIN
+INSERT INTO
+   tb_log_tarefa (id_user, id_tarefa, tipo_alteracao)
+VALUES
+   (OLD.id_user, OLD.id_tarefa, "DELETE");
+
+END $ $ DELIMITER ;
+
 COMMIT;

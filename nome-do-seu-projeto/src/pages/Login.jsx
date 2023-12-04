@@ -16,16 +16,16 @@ export default function Cadastro() {
             throw new Error("Campos nulos");
          }
 
-         const response = await axios.post('http://localhost:8080/users/signin', {
+         const login = await axios.post('http://localhost:8080/users/signin', {
             username: getNome,
             password: getSenha
          });
 
-         console.log(response);
+         console.log(login);
 
          localStorage.setItem("authenticated", "true");
-         localStorage.setItem("token", response.data.token_jwt);
-         localStorage.setItem("nome", response.data.username);
+         localStorage.setItem("token", login.data.token_jwt);
+         localStorage.setItem("nome", login.data.username);
 
          setErro("");
 
