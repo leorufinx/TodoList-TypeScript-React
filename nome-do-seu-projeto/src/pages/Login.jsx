@@ -25,6 +25,7 @@ export default function Cadastro() {
 
          localStorage.setItem("authenticated", "true");
          localStorage.setItem("token", login.data.token_jwt);
+         localStorage.setItem("id", login.data.id_user);
          localStorage.setItem("nome", login.data.username);
 
          setErro("");
