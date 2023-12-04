@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useNavigation } from 'react-router-dom';
 import { InputField, InputArea } from "../components/Input";
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 export default function Cadastro() {
    const [getNome, setNome] = useState('');
    const [getSenha, setSenha] = useState('');
    const [getErro, setErro] = useState("");
+   const navigation = useNavigation();
 
    const handleSubmit = async (e) => {
-
       e.preventDefault();
 
       try {
@@ -26,7 +28,7 @@ export default function Cadastro() {
          localStorage.setItem("authenticated", "true");
          localStorage.setItem("token", response.data.token_jwt);
 
-         //Aqui
+         history.push('/home');
 
          setErro("");
       } catch (error) {
