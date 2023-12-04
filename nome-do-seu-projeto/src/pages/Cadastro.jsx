@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { InputField, InputArea } from "../components/Input";
+import { A } from "../components/A";
 import axios from 'axios';
 
 export default function Cadastro() {
@@ -25,6 +26,21 @@ export default function Cadastro() {
          console.log(response);
 
          setErro("");
+
+         const response2 = await axios.post('http://localhost:8080/users/signin', {
+            username: getNome,
+            password: getSenha
+         });
+
+         console.log(response2);
+
+         localStorage.setItem("authenticated", "true");
+         localStorage.setItem("token", response.data.token_jwt);
+         localStorage.setItem("nome", response.data.username);
+
+         setErro("");
+
+         window.location.href = "/home";
       } catch (error) {
          console.error(error);
          setErro("Erro no cadastro. Por favor, tente novamente.");
@@ -51,6 +67,7 @@ export default function Cadastro() {
          </div>
 
          <input type="submit" className="btn" value="Criar" onClick={handleSubmit} />
+         <A href="/login" target="_self" value="Já tenho conta" />
       </div>
    );
 }

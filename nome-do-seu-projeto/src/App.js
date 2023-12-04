@@ -1,38 +1,22 @@
 import React, { useState } from "react";
 import "./styles/App.scss";
-import { Button, Link } from "./components/Link";
+import { Footer } from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
-   const [getPage, setPage] = useState("Cadastro");
-
-   const renderPage = () => {
-      switch (getPage) {
-         case "Home":
-            return <Home />;
-         case "Login":
-            return <Login />;
-         case "Cadastro":
-            return <Cadastro />;
-         default:
-            return <Cadastro />;
-      }
-   };
-
+export default function App() {
    return (
-      <div>
+      <div className="App">
+         <Routes>
+            <Route path="/" element={<Cadastro />} />
+            <Route path="login" element={<Login />} />
+            <Route path="home" element={<Home />} />
+         </Routes>
 
-         {getPage !== "Home" && <Button href="Home" setPage={setPage} />}
-
-         {getPage !== "Login" && <Button href="Login" setPage={setPage} />}
-
-         {getPage !== "Cadastro" && <Button href="Cadastro" setPage={setPage} />}
-
-         {renderPage()}
+         <Footer />
       </div>
+
    );
 }
-
-export default App;

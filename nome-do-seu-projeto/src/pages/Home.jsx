@@ -15,13 +15,22 @@ export default function Home() {
 
    const logout = () => {
       localStorage.setItem("authenticated", "false");
-      localStorage.setItem("name", null);
-      localStorage.setItem("password", null);
+      localStorage.setItem("token", null);
+      localStorage.setItem("nome", null);
+
+      window.location.href = "/";
    };
+
+   if (localStorage.getItem("authenticated") === "false") {
+      window.location.href = "/";
+      return null;
+   }
 
    return (
       <>
-         <input type="button" className="btn" value="Sair" onClick={() => logout} />
+
+         <h2 className="h2">Logado como <strong>{localStorage.getItem("nome")}</strong></h2>
+         <a className="link" onClick={logout}>Sair</a>
 
          <div className="form">
 

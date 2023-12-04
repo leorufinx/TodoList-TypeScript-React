@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useNavigation } from 'react-router-dom';
 import { InputField, InputArea } from "../components/Input";
+import { A } from "../components/A";
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
 
 export default function Cadastro() {
    const [getNome, setNome] = useState('');
    const [getSenha, setSenha] = useState('');
    const [getErro, setErro] = useState("");
-   const navigation = useNavigation();
 
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -27,10 +25,11 @@ export default function Cadastro() {
 
          localStorage.setItem("authenticated", "true");
          localStorage.setItem("token", response.data.token_jwt);
-
-         history.push('/home');
+         localStorage.setItem("nome", response.data.username);
 
          setErro("");
+
+         window.location.href = "/home";
       } catch (error) {
          console.error(error);
          setErro("Erro no login. Por favor, tente novamente.");
@@ -57,6 +56,7 @@ export default function Cadastro() {
          </div>
 
          <input type="submit" className="btn" value="Entrar" onClick={handleSubmit} />
+         <A href="/" target="_self" value="Criar conta" />
       </div>
    );
 }

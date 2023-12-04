@@ -44,13 +44,6 @@ body {
    background-color: var(--bg);
 }
 
-.link {
-   animation: var(--float);
-   color: inherit;
-   text-decoration: none;
-   font-size: 30px;
-}
-
 :disabled,
 :disabled:hover {
    background-color: var(--h2) !important;
@@ -70,13 +63,17 @@ body {
    background: var(--h2);
 }
 
+a {
+   text-decoration: none;
+}
+
 .form {
    transition: .1s ease-out;
    border-radius: 15px;
    padding: 30px;
    box-shadow: 0px 4px 20px 0px var(--shadow);
    background-color: var(--bg);
-   width: 35%;
+   width: 90%;
    margin-left: auto;
    margin-right: auto;
    margin-top: 52px;
@@ -254,12 +251,16 @@ textarea {
 
 .footer {
    @extend .h2;
+   font-size: 12px;
+   line-height: 20px;
    background-color: var(--shadow);
    text-align: center;
-   padding: 24px;
+   padding: 12px;
 }
 
 .link {
+   margin-left: 12px;
+   margin-right: 12px;
    color: var(--main);
    text-decoration: none;
    font-weight: bolder;
@@ -291,10 +292,7 @@ textarea {
 }
 
 .error {
-   font-family: var(--fontText);
+   @extend .h2;
    font-size: 20px;
-   font-weight: 300;
-   text-align: center;
-   line-height: 28px;
-   color: red;
+   color: #ff4646;
 }
